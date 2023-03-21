@@ -1,0 +1,70 @@
+CSS styling for bottom buttons
+
+/* .extra-buttons{
+    display:flex;
+    justify-content: center;
+    margin-top:5px;
+    gap:10px;
+} */
+
+/* .buttons-digits{
+    display:grid;
+    place-items:center;
+    grid-template-columns: 55px 55px 55px;
+    margin:auto;
+    gap:5px;
+}
+
+.digits{
+    font-size:40px;
+    width:50px;
+    height:60px;
+    padding:0;
+    border-radius:5px;
+    
+}
+
+.extra-buttons{
+    display:grid;
+    
+    grid-template-columns: 115px 50px;
+    gap:5px;
+    margin-top:5px;
+}
+
+
+#key0 {
+    width:110px;
+}
+ */
+
+/* .display{
+    background-color: lightblue;
+    width:180px;
+    height:100px;
+    margin-bottom:10px;
+} */
+HTML buttons previous
+<!-- <div class="buttons-digits">
+        <button id="ac" class="digits">AC</button>
+        <button id="divide" class="digits">/</button>
+        <button id="multiply" class="digits">*</button>
+        <button id="key1" class="digits">1</button>
+        <button id="key2" class="digits">2</button>
+        <button id="key3" class="digits">3</button>
+        <button id="key4" class="digits">4</button>
+        <button id="key5" class="digits">5</button>
+        <button id="key6" class="digits">6</button>
+        <button id="key7" class="digits">7</button>
+        <button id="key8" class="digits">8</button>
+        <button id="key9" class="digits">9</button>
+    </div>
+    <div class="operators">
+        <button id="key7" class="digits">7</button>
+        <button id="key8" class="digits">8</button>
+        <button id="key9" class="digits">9</button>
+    </div>
+    <div class="extra-buttons">
+        <button id="key0" class="digits">0</button>
+        <button id="key-fullstop" class="digits">.</button>
+    </div> -->

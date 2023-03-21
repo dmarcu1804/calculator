@@ -9,24 +9,36 @@
 </head>
 <body>
     <h1>Calculator</h1>
-    <div class="display">
-        <p>2+5</p>
+    <div class="calculator">
+        <div class="output">
+            <div class="previous-operand">123</div>
+            <div class="current-operand">123</div>
+        </div>
+        
+        <div class="all-buttons">
+            <button id="ac" class="allclear">AC</button>
+            <button id="clear" class="clear">C</button>
+            <button id="remainder" class="operator">%</button>
+            <button id="divide" class="operator">/</button>
+            <button id="key7" class="digits">7</button>
+            <button id="key8" class="digits">8</button>
+            <button id="key9" class="digits">9</button>
+            <button id="add" class="operator">+</button>
+            <button id="key4" class="digits">4</button>
+            <button id="key5" class="digits">5</button>
+            <button id="key6" class="digits">6</button>
+            <button id="subtract" class="operator">-</button>
+            <button id="key1" class="digits">1</button>
+            <button id="key2" class="digits">2</button>
+            <button id="key3" class="digits">3</button>
+            <button id="multiply" class="operator">*</button>
+            <button id="key0" class="digits">0</button>
+            <button id="decimal" class="decimal">.</button>
+            <button id="equals" class="equals">=</button>
+            
+        </div>
     </div>
-    <div class="buttons-digits">
-        <button id="key1" class="digits">1</button>
-        <button id="key2" class="digits">2</button>
-        <button id="key3" class="digits">3</button>
-        <button id="key4" class="digits">4</button>
-        <button id="key5" class="digits">5</button>
-        <button id="key6" class="digits">6</button>
-        <button id="key7" class="digits">7</button>
-        <button id="key8" class="digits">8</button>
-        <button id="key9" class="digits">9</button>
-    </div>
-    <div class="extra-buttons">
-        <button id="key0" class="digits">0</button>
-        <button id="key-fullstop" class="digits">.</button>
-    </div>
+    
     <script src="./script.js"></script>
 </body>
 </html>
