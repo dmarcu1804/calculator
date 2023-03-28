@@ -68,3 +68,115 @@ HTML buttons previous
         <button id="key0" class="digits">0</button>
         <button id="key-fullstop" class="digits">.</button>
     </div> -->
+
+
+
+
+
+
+    //28/03/2023 - WORKS FOR ALL OPERATIONS  - NEED TO ADD FUNCTIONALITY FOR = and DECIMALS
+
+    const displayCurrent = Array.from(document.getElementsByClassName("current-operand"))[0];
+    const output = document.querySelector(".output");
+    const displayPrevious = Array.from(document.getElementsByClassName("previous-operand"))[0];
+    const buttons = Array.from(document.querySelectorAll('button'));
+    const operatorSelector = document.querySelectorAll(".operator");
+    const result = document.createElement('div');
+    result.classList.add('result');
+    output.appendChild(result);
+    // console.log(output);
+    const operators = [];
+    const numbers = [];
+    let temp = 0;
+
+    //seems to work now for most operations - need to adjust what happens for when equals is pressed
+    buttons.forEach(button => button.addEventListener('click', (e) =>{
+        if(isFinite(e.target.value)){
+            displayCurrent.innerHTML += e.target.value;
+            result.innerText = "";
+            
+        }else{
+            temp = displayCurrent.textContent;
+            numbers.push(temp);
+            operators.push(e.target.value);
+            displayCurrent.innerHTML = "";
+            if(operators.length > 1 && operators[0] != "="){
+                let resFinal = operate(operators[0], Number(numbers[0]), Number(numbers[1]));
+                numbers.splice(0,2);
+                numbers.push(resFinal);
+                operators.splice(0,1);
+                result.innerText = resFinal;
+                console.log("array numbers " + numbers);
+                console.log("array operators " + operators);
+            }
+            
+            displayCurrent.innerHTML = "";
+        }
+        
+
+        
+    }));
+
+
+    //24.03.2023 - WORKS FOR FIRST ITERATION ADDITION
+
+const displayCurrent = Array.from(document.getElementsByClassName("current-operand"))[0];
+const output = document.querySelector(".output");
+const displayPrevious = Array.from(document.getElementsByClassName("previous-operand"))[0];
+const buttons = Array.from(document.querySelectorAll('button'));
+const result = document.createElement('div');
+result.classList.add('result');
+output.appendChild(result);
+// console.log(output);
+const operators = [];
+const numbers = [];
+
+buttons.map(button => {
+    button.addEventListener('click', (e) => {
+        //console.log(e.target.innerText);
+        
+        if(isFinite(e.target.value)){
+            displayCurrent.textContent += e.target.value;
+            //console.log(numbers);
+        }else{
+            operators.push(e.target.value);
+            displayPrevious.innerHTML = displayCurrent.innerHTML;
+            numbers.push(displayPrevious.textContent);
+            if(numbers.length >= 2){
+                if(operators[1] =="="){
+                    result.innerHTML = operate(operators[0],Number(numbers[0]) ,Number(numbers[1]));
+                    numbers.splice(0,1);
+                    numbers.push(result.innerText);
+                    console.log(numbers);
+                    operators.splice(0,2);
+                } 
+            }
+            displayCurrent.innerText = "";   
+                    
+        }
+    });
+});
+
+
+
+    SCRIPT - INITIAL CODE
+    const displayCurrent = Array.from(document.getElementsByClassName("current-operand"))[0];
+    const displayPrevious = Array.from(document.getElementsByClassName("previous-operand"))[0];
+    const buttons = Array.from(document.querySelectorAll('button'));
+
+    buttons.map(button => {
+        button.addEventListener('click', (e) => {
+            if(e.target.value != "+"){
+                displayCurrent.innerHTML += Number(e.target.value);
+                if(e.target.value == "="){
+                    console.log(displayPrevious.innerHTML);
+                    console.log(displayCurrent.innerHTML.slice(0,-3));
+                    displayCurrent.innerHTML = add(Number(displayCurrent.textContent.slice(0,-3)), Number(displayPrevious.textContent));
+                }
+            }else{
+                displayPrevious.innerHTML = Number(displayCurrent.innerHTML);
+                displayCurrent.innerHTML = "";
+            }
+            
+        });
+    });
