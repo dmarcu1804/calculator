@@ -72,6 +72,40 @@ HTML buttons previous
 
 
 
+    //28 03 2023 - WORKS FOR ALL OPERATIONS AND EQUALS - NEED TO ADD FUNCTIONALITY FOR AC AND C
+    //works for all operations
+    buttons.forEach(button => button.addEventListener('click', (e) =>{
+        if(isFinite(e.target.value)){
+            displayCurrent.innerHTML += e.target.value;
+            result.innerText = "";
+            
+        }else{
+            temp = displayCurrent.textContent;
+            numbers.push(temp);
+            operators.push(e.target.value);
+            displayCurrent.innerHTML = "";
+            if(operators.length > 1){
+                if(operators[0] != "="){
+                    resFinal = operate(operators[0], Number(numbers[0]), Number(numbers[1]));
+                    numbers.splice(0,2);
+                    numbers.push(resFinal);
+                    operators.splice(0,1);
+                    result.innerText = resFinal;
+                }else{
+                    if(numbers[1] == ""){
+                        numbers.splice(1,1);
+                    }
+                    operators.splice(0,1);
+                    resFinal = operate(operators[0], Number(numbers[0]), Number(numbers[1]));
+                }
+            }
+            displayCurrent.innerHTML = "";
+        }
+    }));
+
+
+
+
 
 
     //28/03/2023 - WORKS FOR ALL OPERATIONS  - NEED TO ADD FUNCTIONALITY FOR = and DECIMALS
